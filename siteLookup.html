@@ -1,0 +1,52 @@
+<html>
+    <head>
+        	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.6/vue.min.js"></script>
+			<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+	
+	<style>
+		#app{
+			margin-top:50px;
+		}
+	</style>
+    </head>
+
+<body>
+<div id="app">
+	{{ regionDD }}
+	Region: <select @change="cascade" v-model="regionDD">
+	  <option></option>	
+	  <option value="Eastern">Eastern</option>
+	  <option value="Western">Western</option>
+	  <option value="Southern">Southern</option>
+	  <option value="Northern">Northern</option>
+	</select>
+	 <span v-if="regionDD">Search site: <input type="text" id="searchTbl" v-model="searchTbl" value="" /></span><br /><br /><br />
+	
+		<table border="1" class="table table-striped">
+			<tr>
+				<th class="thead-dark"td>Edit</th>
+				<th class="thead-dark">Region</th>
+				<th class="thead-dark">Site</th>			
+				<th class="thead-dark">City</th>		
+				<th class="thead-dark">Zip Code</th>
+				<th class="thead-dark">Phone Number</th>
+				<th class="thead-dark">Extension</th>	
+			</tr>
+			<tr v-for="item in filterRegions">
+				<td><a v-bind:href="url+item.ID+urlEnd">Edit</a></td>
+				<td>{{ item.Title }}</td>				
+				<td>{{ item.Site }}</td>
+				<td>{{ item.City }}</td>	
+				<td>{{ item.zip }}</td>
+				<td>{{ item.Phone_x0020_Number }}</td>				
+				<td>{{ item.ext }}</td>										
+			</tr>
+		</table>
+	</div>	
+
+</body>      
+<script type="text/javascript" src="https://isogunro.sharepoint.com/sites/demos/mdemos/webpart/siteLookup/siteLookup.js"></script>
+  
+</html>
